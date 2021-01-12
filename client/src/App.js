@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import M from 'materialize-css';
 
 function App() {
   return (

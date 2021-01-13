@@ -1,0 +1,12 @@
+.cst-btn-disabled {
+    background-color: rgb(119, 119, 119) !important
+}
+
+.cst-btn {
+    background-color: #434343;
+    color: rgb(251, 185, 105);
+}
+
+.cst-btn:hover {
+    background-color: black;
+}

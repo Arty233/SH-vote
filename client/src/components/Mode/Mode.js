@@ -7,7 +7,9 @@ export default function Mode(props) {
     }
     return (
         <div className="mode">
-            <h1 className="header center">Choose voting mode</h1>
+            <div className="row center">
+                <h2 className="header col s12 light">Choose voting mode</h2>
+            </div>
             <div className="row center">
                 <a
                     className="waves-effect waves-light btn-large"

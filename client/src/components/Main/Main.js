@@ -9,6 +9,7 @@ export default function Main() {
     }
     return (
         <div className="main">
+            <h1 className="header center">Secret Hitler voting</h1>
             {mode
                 ? <h1>Voting</h1>
                 : <Mode onModeChange={handleModeChange} />

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Courier Prime";
+    src: url('../fonts/Courier_Prime/CourierPrime-Regular.ttf');
+}
+
+body {
+    font-family: 'Courier Prime', 'Open Sans', sans-serif;
+}
+
+h1, h2 {
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #434343;
+}

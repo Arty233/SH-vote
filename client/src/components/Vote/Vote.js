@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Voting from "../Voting/Voting";
 
 import './Vote.css'
 
@@ -8,7 +9,7 @@ export default function Vote() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (e) => {
-        setNumOfPlayers(e.target.value);
+        setNumOfPlayers(Number(e.target.value));
     }
 
     const handleSubmit = (e) => {
@@ -21,9 +22,14 @@ export default function Vote() {
         setErrorMessage('');
     }
 
+    const handleDropVoting = () => {
+        setIsPlayersSet(false);
+    }
+
     return (
         <div className="vote">
-            {isPlayersSet ? <h1>Yes</h1>
+            {isPlayersSet
+                ? <Voting players={numOfPlayers} onDrop={handleDropVoting} />
                 :
                 <div className="row center">
                     <div className="row center">

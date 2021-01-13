@@ -24,7 +24,11 @@ export default function Voting(props) {
     }, [count])
 
     const handleVoteClick = (e) => {
-        window.navigator.vibrate(300);
+        try {
+            window.navigator.vibrate(300);
+        } catch (e) {
+            console.error(e);
+        }
         const field = e.target.name;
         const newScore = { ...score };
         newScore[field]++;

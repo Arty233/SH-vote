@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Mode from "../Mode/Mode";
+import Vote from "../Vote/Vote";
 
 export default function Main() {
     const [mode, setMode] = useState('');
@@ -11,7 +12,7 @@ export default function Main() {
         <div className="main">
             <h1 className="header center">Secret Hitler voting</h1>
             {mode
-                ? <h1>Voting</h1>
+                ? <Vote />
                 : <Mode onModeChange={handleModeChange} />
             }
         </div>

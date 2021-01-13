@@ -1,0 +1,14 @@
+.vote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vote__input {
+    width: 60px !important;
+}
+
+.vote__input:focus {
+    border-bottom: 1px solid black !important;
+    box-shadow: 1px solid black !important;
+}

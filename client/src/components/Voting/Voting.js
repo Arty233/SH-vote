@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import playSound from "../../utils/alert";
 
 import './Voting.css';
 
@@ -26,6 +27,7 @@ export default function Voting(props) {
     const handleVoteClick = (e) => {
         try {
             window.navigator.vibrate(300);
+            playSound();
         } catch (e) {
             console.error(e);
         }

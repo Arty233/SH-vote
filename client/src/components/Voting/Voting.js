@@ -27,7 +27,7 @@ export default function Voting(props) {
     const handleVoteClick = (e) => {
         try {
             playSound();
-            window.navigator.vibrate(300); 
+            window.navigator.vibrate(300);
         } catch (e) {
             console.error(e);
         }

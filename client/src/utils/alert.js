@@ -1,8 +1,7 @@
+import sound from "../assets/sounds/alert.mp3";
+
 export default function playSound() {
-    const alertUrl = 'https://proxy.notificationsounds.com/notification-sounds/when-604/download/file-sounds-1145-when.mp3';
-    const audio = new Audio(alertUrl);
+    const audio = new Audio();
+    audio.src = sound;
     audio.play();
 }
-
-// TODO:
-// Download alert into assets

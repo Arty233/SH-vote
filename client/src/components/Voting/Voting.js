@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-import playSound from "../../utils/alert";
+import sound from '../../assets/sounds/alert.mp3';
 
 import './Voting.css';
+
+const audio = new Audio();
+audio.src = sound;
+audio.preload = 'auto';
 
 export default function Voting(props) {
     const [count, setCount] = useState(0);
@@ -26,7 +30,11 @@ export default function Voting(props) {
 
     const handleVoteClick = (e) => {
         try {
-            playSound();
+            if (!audio.ended) {
+                audio.pause();
+                audio.currentTime = 0.0;
+            }
+            audio.play();
             window.navigator.vibrate(300);
         } catch (e) {
             console.error(e);

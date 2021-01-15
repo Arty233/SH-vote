@@ -15,9 +15,9 @@ export default function Voting(props) {
     })
     const [isFinished, setIsFinished] = useState(false);
     const [result, setResult] = useState('');
+    const [isButtonsDisabled, setIsButtonsDisabled] = useState(false);
 
     useEffect(() => {
-        console.log(typeof props.players)
         if (count === props.players) {
             setIsFinished(true);
             if (score.yes > score.no) {
@@ -28,16 +28,25 @@ export default function Voting(props) {
         }
     }, [count])
 
+    const toggleButtons = (val) => {
+        setIsButtonsDisabled(val);
+        
+    }
+
     const handleVoteClick = (e) => {
+        e.preventDefault();
+        toggleButtons(true);
+        const timeout = setTimeout(() => toggleButtons(false), 1000);
         try {
             if (!audio.ended) {
                 audio.pause();
                 audio.currentTime = 0.0;
             }
-            audio.play();
-            window.navigator.vibrate(300);
+            audio.play().catch(e => console.error(e));
         } catch (e) {
             console.error(e);
+            clearTimeout(timeout);
+            toggleButtons(false);
         }
         const field = e.target.name;
         const newScore = { ...score };
@@ -62,10 +71,10 @@ export default function Voting(props) {
                 :
                 <div>
                     <div className="row center">
-                        <a className="btn-large" name="yes" onClick={handleVoteClick}>Ja!</a>
+                        <a className="btn-large" name="yes" onClick={handleVoteClick} disabled={isButtonsDisabled}>Ja!</a>
                     </div>
                     <div className="row center">
-                        <a className="btn-large red" name="no" onClick={handleVoteClick}>Nein!</a>
+                        <a className="btn-large red" name="no" onClick={handleVoteClick} disabled={isButtonsDisabled}>Nein!</a>
                     </div>
                     <div className="row center">
                         <p>
